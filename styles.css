@@ -1,0 +1,118 @@
+:root{
+    --dark-color: #004ba0;
+    --dark-text-color: #FFFFFF;
+    --primary-color: #1976d2;
+    --primary-text-color: #FFFFFF;
+    --font-family: Segoe UI;
+    --disabled-color: #E1E2E1;
+    --alto-controles: 50px;
+    --dimension-control: 40px;
+    --box-shadow: 0px 0px 10px 0px rgb(56, 39, 39);
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: var(--dark-color);
+    color: var(--dark-text-color);
+    font-family: var(--font-family);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    font-size: 1.5em;
+    padding: 10px;
+}
+
+section {
+    flex: 1;
+    margin-top: 52px;
+}
+
+section.video-container {
+    background-color: var(--disabled-color);
+
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+}
+
+    section.video-container video {
+        position: absolute;
+        width: 200px;
+        height: 150px;
+        bottom: var(--alto-controles);
+        right: 0;
+    }
+
+    section.video-container .photo {
+        flex: 1;
+    }
+
+    section.video-container .controls {
+        background-color: var(--primary-color);
+        height: var(--alto-controles);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        section.video-container .controls .photo-taker {
+            width: var(--dimension-control);
+            height: var(--dimension-control);
+            background-color: #FFFFFF;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+            section.video-container .controls .photo-taker:hover {
+                -webkit-box-shadow: var(--box-shadow);
+                -moz-box-shadow:    var(--box-shadow);
+                box-shadow:         var(--box-shadow);
+            }
+
+section.album {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    overflow: hidden auto;
+    padding: 20px;
+}
+
+    section.album a {
+        margin: 10px;
+    }
+
+    section.album img {
+        width: 100px;
+        overflow-x: scroll;
+        padding: 10px 10px 20px 10px;
+        box-shadow: 0 0 3px rgba(0,0,0,0.2);
+        background: white;
+    }
+
+    section.album a:nth-child(5n+1) img { transform: rotate(10deg); }
+    section.album a:nth-child(5n+2) img { transform: rotate(-2deg); }
+    section.album a:nth-child(5n+3) img { transform: rotate(8deg); }
+    section.album a:nth-child(5n+4) img { transform: rotate(-11deg); }
+    section.album a:nth-child(5n+5) img { transform: rotate(12deg); }
