@@ -1,9 +1,10 @@
-const video = document.querySelector('video');
-const canvas = document.querySelector('canvas.photo');
+const contenedorVideo = document.querySelector('.video-container');
+const video = contenedorVideo.querySelector('video');
+const canvas = contenedorVideo.querySelector('canvas.photo');
 const contexto = canvas.getContext('2d');
 const album = document.querySelector('section.album');
 const sonidos = document.querySelector('audio.snap');
-const tomarFotos = document.querySelector('button.photo-taker');
+const tomarFotos = contenedorVideo.querySelector('button.photo-taker');
 
 const solicitarVideoAlNavegador = async () => {
     try{
@@ -41,8 +42,9 @@ const rgbSplit = pixels => {
 };
 
 const mostrarVideoEnCanvas = () => {
-    const width = video.videoWidth;
-    const height = video.videoHeight;
+    const width = contenedorVideo.getBoundingClientRect().width;
+    const height = (video.videoHeight * width) / video.videoWidth;
+
     canvas.width = width;
     canvas.height = height;
 
@@ -51,7 +53,7 @@ const mostrarVideoEnCanvas = () => {
         
         let pixels = contexto.getImageData(0, 0, width, height);
         
-        pixels = rgbSplit(pixels);
+        //pixels = rgbSplit(pixels);
         
         contexto.putImageData(pixels, 0, 0);
     }, 1);

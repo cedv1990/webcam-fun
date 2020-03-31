@@ -62,8 +62,12 @@ section.video-container {
         right: 0;
     }
 
-    section.video-container .photo {
+    section.video-container div.photo {
         flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
     }
 
     section.video-container .controls {
